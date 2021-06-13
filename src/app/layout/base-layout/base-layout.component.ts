@@ -1,16 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-base-layout',
   templateUrl: './base-layout.component.html',
-  styles: [
-  ]
 })
-export class BaseLayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BaseLayoutComponent {
+  @HostBinding('class') hostClasses = ['d-flex', 'flex-column', 'flex-grow-1'];
 }
