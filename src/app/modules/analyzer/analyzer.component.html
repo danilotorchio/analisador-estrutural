@@ -1,119 +1,164 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <div class="row mt-4">
-        <div class="col d-flex justify-content-center">
-            <img src="assets/media/estrutura.png" alt="estrutura" class="img-fluid" style="max-height: 350px; height: auto; width: auto;">
+<div class="animate__animated animate__fadeInUp">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row">
+            <div class="col my-2 my-sm-0">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Arame 01 (barra AB)</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <mat-form-field class="w-100">
+                            <mat-label>Comprimento (L1):</mat-label>
+                            <input type="number" matInput placeholder="Comprimento (L1)" autocomplete="off" formControlName="l1">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l1'])">Informe o comprimento do arame AB (L1)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l1']) && form.hasError('number', ['l1'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Área da seção transversal (A):</mat-label>
+                            <input type="number" matInput placeholder="Área da seção transversal (A)" autocomplete="off" formControlName="areaAB">
+                            <span matSuffix class="mx-2 text-muted">mm²</span>
+                            <mat-error *ngIf="form.hasError('required', ['areaAB'])">Informe a área da seção transversal do arame AB</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['areaAB']) && form.hasError('number', ['areaAB'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Módulo de Elasticidade (E):</mat-label>
+                            <input type="number" matInput placeholder="Módulo de Elasticidade (E)" autocomplete="off" formControlName="elasticidadeAB">
+                            <span matSuffix class="mx-2 text-muted">GPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['elasticidadeAB'])">Informe o módulo de elasticidade do arame AB</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['elasticidadeAB']) && form.hasError('number', ['elasticidadeAB'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Limite de Escoamento (σ):</mat-label>
+                            <input type="number" matInput placeholder="Limite de Escoamento (σ)" autocomplete="off" formControlName="escoamentoAB">
+                            <span matSuffix class="mx-2 text-muted">MPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['escoamentoAB'])">Informe o limite de escoamento do arame AB</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['escoamentoAB']) && form.hasError('number', ['escoamentoAB'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col my-2 my-sm-0">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Arame 02 (barra CD)</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <mat-form-field class="w-100">
+                            <mat-label>Comprimento (L2):</mat-label>
+                            <input type="number" matInput placeholder="Comprimento (L2)" autocomplete="off" formControlName="l2">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l2'])">Informe o comprimento do arame AB (L2)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l2']) && form.hasError('number', ['l2'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Área da seção transversal (A):</mat-label>
+                            <input type="number" matInput placeholder="Área da seção transversal (A)" autocomplete="off" formControlName="areaCD">
+                            <span matSuffix class="mx-2 text-muted">mm²</span>
+                            <mat-error *ngIf="form.hasError('required', ['areaCD'])">Informe a área da seção transversal do arame CD</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['areaCD']) && form.hasError('number', ['areaCD'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Módulo de Elasticidade (E):</mat-label>
+                            <input type="number" matInput placeholder="Módulo de Elasticidade (E)" autocomplete="off" formControlName="elasticidadeCD">
+                            <span matSuffix class="mx-2 text-muted">GPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['elasticidadeCD'])">Informe o módulo de elasticidade do arame CD</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['elasticidadeCD']) && form.hasError('number', ['elasticidadeCD'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Limite de Escoamento (σ):</mat-label>
+                            <input type="number" matInput placeholder="Limite de Escoamento (σ)" autocomplete="off" formControlName="escoamentoCD">
+                            <span matSuffix class="mx-2 text-muted">MPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['escoamentoCD'])">Informe o limite de escoamento do arame CD</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['escoamentoCD']) && form.hasError('number', ['escoamentoCD'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col my-2 my-sm-0">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Arame 03 (barra EF)</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <mat-form-field class="w-100">
+                            <mat-label>Comprimento (L3):</mat-label>
+                            <input type="number" matInput placeholder="Comprimento (L3)" autocomplete="off" formControlName="l3">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l3'])">Informe o comprimento do arame AB (L3)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l3']) && form.hasError('number', ['l3'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Área da seção transversal (A):</mat-label>
+                            <input type="number" matInput placeholder="Área da seção transversal (A)" autocomplete="off" formControlName="areaEF">
+                            <span matSuffix class="mx-2 text-muted">mm²</span>
+                            <mat-error *ngIf="form.hasError('required', ['areaEF'])">Informe a área da seção transversal do arame EF</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['areaEF']) && form.hasError('number', ['areaEF'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Módulo de Elasticidade (E):</mat-label>
+                            <input type="number" matInput placeholder="Módulo de Elasticidade (E)" autocomplete="off" formControlName="elasticidadeEF">
+                            <span matSuffix class="mx-2 text-muted">GPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['elasticidadeEF'])">Informe o módulo de elasticidade do arame EF</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['elasticidadeEF']) && form.hasError('number', ['elasticidadeEF'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Limite de Escoamento (σ):</mat-label>
+                            <input type="number" matInput placeholder="Limite de Escoamento (σ)" autocomplete="off" formControlName="escoamentoEF">
+                            <span matSuffix class="mx-2 text-muted">MPa</span>
+                            <mat-error *ngIf="form.hasError('required', ['escoamentoEF'])">Informe o limite de escoamento do arame EF</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['escoamentoEF']) && form.hasError('number', ['escoamentoEF'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
-    </div>
 
-    <hr>
+        <div class="row mt-0 mt-sm-2">
+            <div class="col col-sm-8 my-2 my-sm-0">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Outros parâmetros</mat-card-title>
+                    </mat-card-header>
 
-    <div class="row">
-        <div class="col my-2 my-md-0">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Comprimentos</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                    <mat-form-field class="w-100">
-                        <mat-label>Comprimento do arame AB (L1)</mat-label>
-                        <input type="number" matInput placeholder="Arame AB (L1)" autocomplete="off" formControlName="l1">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l1'])">Informe o comprimento do arame AB (L1)</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l1'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Comprimento do arame CD (L2)</mat-label>
-                        <input type="number" matInput placeholder="Arame CD (L2)" autocomplete="off" formControlName="l2">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l2'])">Informe o comprimento do arame CD (L2)</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l2'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Comprimento do arame EF (L3)</mat-label>
-                        <input type="number" matInput placeholder="Arame EF (L3)" autocomplete="off" formControlName="l3">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l3'])">Informe o comprimento do arame EF (L3)</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l3'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
+                    <mat-card-content>
+                        <mat-form-field class="w-100">
+                            <mat-label>Distância BD (L4):</mat-label>
+                            <input type="number" matInput placeholder="Distância BD (L4)" autocomplete="off" formControlName="l4">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l4'])">Informe a distância entre os pontos AB (L4)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l4']) && form.hasError('number', ['l4'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Distância DF (L5):</mat-label>
+                            <input type="number" matInput placeholder="Distância DF (L5)" autocomplete="off" formControlName="l5">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l5'])">Informe a distância entre os pontos DF (L5)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l5']) && form.hasError('number', ['l5'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Distância FG (L6):</mat-label>
+                            <input type="number" matInput placeholder="Distância FG (L6)" autocomplete="off" formControlName="l6">
+                            <span matSuffix class="mx-2 text-muted">m</span>
+                            <mat-error *ngIf="form.hasError('required', ['l6'])">Informe a distância entre os pontos DF (L6)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['l6']) && form.hasError('number', ['l6'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Carga distribuída (w)</mat-label>
+                            <input type="number" matInput placeholder="Carga distribuída (w)" autocomplete="off" formControlName="w">
+                            <span matSuffix class="mx-2 text-muted">KN/m</span>
+                            <mat-error *ngIf="form.hasError('required', ['w'])">Informe a carga distribuída (w)</mat-error>
+                            <mat-error *ngIf="!form.hasError('required', ['w']) && form.hasError('number', ['w'])">O valor informado precisa ser maior que zero</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col col-sm-4 d-flex justify-content-center align-items-center">
+                <button type="submit" mat-flat-button color="primary" class="mat-elevation-z8" style="height: 50px; width: 250px;">Calcular Parâmetros</button>
+            </div>
         </div>
-
-        <div class="col my-2 my-md-0">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Distâncias</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                    <mat-form-field class="w-100">
-                        <mat-label>Distância entre os pontos BD (L4)</mat-label>
-                        <input type="number" matInput placeholder="Distância entre os pontos BD" autocomplete="off" formControlName="l4">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l4'])">Informe a distância entre os pontos BD</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l4'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Distância entre os pontos DF (L5)</mat-label>
-                        <input type="number" matInput placeholder="Distância entre os pontos DF" autocomplete="off" formControlName="l5">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l5'])">Informe a distância entre os pontos DF</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l5'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Distância entre os pontos FG (L6)</mat-label>
-                        <input type="number" matInput placeholder="Distância entre os pontos FG" autocomplete="off" formControlName="l6">
-                        <span matSuffix class="mx-2 text-muted">metros</span>
-                        <mat-error *ngIf="form.hasError('required', ['l6'])">Informe a distância entre os pontos FG</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['l6'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
-        </div>
-
-        <div class="col my-2 my-md-0">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Outros parâmetros</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                    <mat-form-field class="w-100">
-                        <mat-label>Carga distribuída (w)</mat-label>
-                        <input type="number" matInput placeholder="Carga distribuída (w)" autocomplete="off" formControlName="w">
-                        <span matSuffix class="mx-2 text-muted">KN/m</span>
-                        <mat-error *ngIf="form.hasError('required', ['w'])">Informe a carga distribuída (w)</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['w'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Limite de escoamento (σ)</mat-label>
-                        <input type="number" matInput placeholder="Limite de escoamento" autocomplete="off" formControlName="limiteEscoamento">
-                        <span matSuffix class="mx-2 text-muted">MPa</span>
-                        <mat-error *ngIf="form.hasError('required', ['limiteEscoamento'])">Informe o limite de escoamento da barra</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['limiteEscoamento'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="w-100">
-                        <mat-label>Módulo de Elasticidade (E)</mat-label>
-                        <input type="number" matInput placeholder="Módulo de Elasticidade" autocomplete="off" formControlName="moduloElasticidade">
-                        <span matSuffix class="mx-2 text-muted">GPa</span>
-                        <mat-error *ngIf="form.hasError('required', ['moduloElasticidade'])">Informe o módulo de elasticidade da barra</mat-error>
-                        <mat-error *ngIf="form.hasError('number', ['moduloElasticidade'])">O valor informado precisa ser maior que zero</mat-error>
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-
-    <div class="row my-3">
-        <div class="col-12 d-flex justify-content-center">
-            <button type="submit" mat-flat-button color="primary" class="py-1" style="min-width: 360px;">Calcular Parâmetros</button>
-        </div>
-    </div>
-</form>
+    </form>
+</div>

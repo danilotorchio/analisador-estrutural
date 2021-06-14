@@ -1,1 +1,31 @@
-<p>report works!</p>
+<div class="animate__animated animate__fadeInLeft">
+    <h1 class="my-2">Relatório</h1>
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <h2>Reações de Apoio:</h2>
+
+            <b>Va = </b><span>{{ service.data?.forcaVA || 0.00 }} N</span> <br>
+            <b>Vc = </b><span>{{ service.data?.forcaVC || 0.00 }} N</span> <br>
+            <b>Ve = </b><span>{{ service.data?.forcaVE || 0.00 }} N</span> <br>
+        </div>
+        <div class="col">
+            <h2>Deformações:</h2>
+
+            <b>Ɛab = </b><span>{{ service.data?.deformacaoAB || 0.00 }} m</span> <br>
+            <b>Ɛcd = </b><span>{{ service.data?.deformacaoCD || 0.00 }} m</span> <br>
+            <b>Ɛef = </b><span>{{ service.data?.deformacaoEF || 0.00 }} m</span> <br>
+        </div>
+        <div class="col">
+            <h2>Deslocamentos:</h2>
+
+            <b>δb = </b><span>{{ service.data?.deslocamentoAB || 0.00 }} mm</span> <br>
+            <b>δd = </b><span>{{ service.data?.deslocamentoCD || 0.00 }} mm</span> <br>
+            <b>δf = </b><span>{{ service.data?.deslocamentoEF || 0.00 }} mm</span> <br>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <button type="submit" mat-flat-button color="primary" class="mat-elevation-z8" style="height: 50px; width: 250px;" routerLink="/analisador/estrutura">Voltar</button>
+    </div>
+</div>

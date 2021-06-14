@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { AnalyzerService } from '../analyzer/analyzer.service';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
 })
-export class ReportComponent implements OnInit {
-  constructor() {}
+export class ReportComponent {
+  @HostBinding('class') hostClasses = ['d-flex', 'flex-column', 'flex-grow-1'];
 
-  ngOnInit(): void {}
+  constructor(public service: AnalyzerService) {}
 }

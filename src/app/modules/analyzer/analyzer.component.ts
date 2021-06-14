@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {
   AbstractControl,
@@ -9,28 +10,19 @@ import {
   Validators,
 } from '@angular/forms';
 
-type FormData = {
-  l1: number;
-  l2: number;
-  l3: number;
-  l4: number;
-  l5: number;
-  l6: number;
-  w: number;
-  limiteEscoamento: number;
-  moduloElasticidade: number;
-};
+import { AnalyzerService } from './analyzer.service';
+import { AnalyzerInputData } from './analyzer.dto';
 
 @Component({
   selector: 'app-analyzer',
   templateUrl: './analyzer.component.html',
 })
 export class AnalyzerComponent implements OnInit {
-  @HostBinding('class') hostClasses = ['d-flex', 'flex-column', 'flex-grow-1'];
+  @HostBinding('class') hostClasses = ['d-flex', 'flex-column', 'flex-grow-1', 'justify-content-center'];
 
   form!: FormGroup;
 
-  constructor() {}
+  constructor(private _service: AnalyzerService, private _router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -40,16 +32,43 @@ export class AnalyzerComponent implements OnInit {
       l4: new FormControl(null, [Validators.required, this._number()]),
       l5: new FormControl(null, [Validators.required, this._number()]),
       l6: new FormControl(null, [Validators.required, this._number()]),
+      areaAB: new FormControl(null, [Validators.required, this._number]),
+      areaCD: new FormControl(null, [Validators.required, this._number]),
+      areaEF: new FormControl(null, [Validators.required, this._number]),
+      escoamentoAB: new FormControl(null, [Validators.required, this._number()]),
+      escoamentoCD: new FormControl(null, [Validators.required, this._number()]),
+      escoamentoEF: new FormControl(null, [Validators.required, this._number()]),
+      elasticidadeAB: new FormControl(null, [Validators.required, this._number()]),
+      elasticidadeCD: new FormControl(null, [Validators.required, this._number()]),
+      elasticidadeEF: new FormControl(null, [Validators.required, this._number()]),
       w: new FormControl(null, [Validators.required, this._number()]),
-      limiteEscoamento: new FormControl(null, [Validators.required, this._number()]),
-      moduloElasticidade: new FormControl(null, [Validators.required, this._number()]),
     });
   }
 
   submit() {
     if (this.form.valid) {
-      const data = this.form.getRawValue() as FormData;
-      console.log(data);
+      const form = this.form.getRawValue();
+      const data = new AnalyzerInputData();
+
+      data.l1 = form.l1;
+      data.l2 = form.l2;
+      data.l3 = form.l3;
+      data.l4 = form.l4;
+      data.l5 = form.l5;
+      data.l6 = form.l6;
+      data.areaAB = form.areaAB;
+      data.areaCD = form.areaCD;
+      data.areaEF = form.areaEF;
+      data.elasticidadeAB = form.elasticidadeAB;
+      data.elasticidadeCD = form.elasticidadeCD;
+      data.elasticidadeEF = form.elasticidadeEF;
+      data.escoamentoAB = form.escoamentoAB;
+      data.escoamentoCD = form.escoamentoCD;
+      data.escoamentoEF = form.escoamentoEF;
+      data.w = form.w;
+
+      this._service.calculate(data);
+      this._router.navigate(['/analisador/relatorio']);
     }
   }
 
